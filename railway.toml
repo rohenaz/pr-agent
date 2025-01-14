@@ -3,6 +3,6 @@ builder = "nixpacks"
 buildCommand = "pip install -r requirements.txt"
 
 [deploy]
-startCommand = "python -m pr_agent.cli --server"
+startCommand = "python -m pr_agent.servers.github_app"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10

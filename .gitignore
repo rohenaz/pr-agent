@@ -11,3 +11,4 @@ build/
 .DS_Store
 docs/.cache/
 .qodo
+pr_agent/settings/custom_config.toml

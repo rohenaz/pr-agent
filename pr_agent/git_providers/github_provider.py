@@ -1,10 +1,17 @@
 import copy
+import os
 import difflib
+import os
 import hashlib
+import os
 import itertools
+import os
 import re
+import os
 import time
+import os
 import traceback
+import os
 from datetime import datetime
 from typing import Optional, Tuple
 from urllib.parse import urlparse
@@ -708,8 +715,11 @@ class GithubProvider(GitProvider):
             return Github(app_auth=auth, base_url=self.base_url)
 
         if deployment_type == 'user':
+            print("Deployment type:", deployment_type)
+            print("Settings:", get_settings())
+            print("GitHub token:", get_settings().github.user_token if hasattr(get_settings().github, "user_token") else "Not found")
             try:
-                token = get_settings().github.user_token
+                token = os.environ.get("GITHUB_TOKEN")
             except AttributeError as e:
                 raise ValueError(
                     "GitHub token is required when using user deployment. See: "
