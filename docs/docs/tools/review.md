@@ -57,6 +57,10 @@ extra_instructions = "..."
     <td>If set to true, the review comment will be persistent, meaning that every new review request will edit the previous one. Default is true.</td>
   </tr>
   <tr>
+  <td><b>final_update_message</b></td>
+  <td>When set to true, updating a persistent review comment during online commenting will automatically add a short comment with a link to the updated review in the pull request .Default is true.</td>
+  </tr>
+  <tr>
     <td><b>extra_instructions</b></td>
     <td>Optional extra instructions to the tool. For example: "focus on the changes in the file X. Ignore change in ...".</td>
   </tr>
@@ -118,10 +122,6 @@ If enabled, the `review` tool can approve a PR when a specific comment, `/review
   <tr>
     <td><b>enable_auto_approval</b></td>
     <td>If set to true, the tool will approve the PR when invoked with the 'auto_approve' command. Default is false. This flag can be changed only from a configuration file.</td>
-  </tr>
-  <tr>
-    <td><b>maximal_review_effort</b></td>
-    <td>Maximal effort level for auto-approval. If the PR's estimated review effort is above this threshold, the auto-approval will not run. Default is 5.</td>
   </tr>
 </table>
 
@@ -193,12 +193,6 @@ If enabled, the `review` tool can approve a PR when a specific comment, `/review
     ```
     Qodo Merge will automatically approve the PR, and add a comment with the approval.
 
-
-    You can also enable auto-approval only if the PR meets certain requirements, such as that the `estimated_review_effort` label is equal or below a certain threshold, by adjusting the flag:
-    ```
-    [pr_reviewer]
-    maximal_review_effort = 5
-    ```
 
 !!! tip  "Code suggestions"
 
